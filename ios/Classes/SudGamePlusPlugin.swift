@@ -78,6 +78,14 @@ public class SudGamePlusPlugin: NSObject, FlutterPlugin,FlutterStreamHandler, Fl
         self.gameApp = SudMGP.loadMG(model!, fsmMG: self)
         
         break
+    case "pauseMG":
+        self.gameApp?.pauseMG()
+        result(["message":"success","errorCode":0]);
+        break
+    case "playMG":
+        self.gameApp?.playMG()
+        result(["message":"success","errorCode":0]);
+        break
     case "destroyGame":
         self.gameApp?.destroyMG()
         result(["message":"success","errorCode":0]);
