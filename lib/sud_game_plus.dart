@@ -40,8 +40,8 @@ class SudGamePlus {
   }
 
   static Future<Map?> loadGame(String userid, String roomid, String code, int gameid,BuildContext context,{String? language, String? viewSize, String? gameConfig}){
-    viewSize ?? getGameViewSize(context);
-    gameConfig ?? getGameConfig();
+    viewSize ??= getGameViewSize(context);
+    gameConfig ??= getGameConfig();
 
     Locale locale = Localizations.localeOf(context);
     final languageCode = locale.languageCode;
@@ -49,7 +49,7 @@ class SudGamePlus {
       'en':'en-US',
       'zh':"zh-TW",
     };
-    final language = languageMap['languageCode'] ?? 'en-US';
+    final language = languageMap[languageCode] ?? 'en-US';
     return SudGamePlusPlatform.instance.loadGame(userid, roomid, code, gameid, language, viewSize!, gameConfig!);
   }
 

@@ -92,7 +92,7 @@ class LivePageState extends State<LivePage> {
                  if (result != null) {
                    final code = await getAuthCode();
                    if (code != null) {
-                     await SudGamePlus.loadGame(localUserID, widget.liveID, code, result, "en-US", getGameViewSize(),  getGameConfig());
+                     await SudGamePlus.loadGame(localUserID, widget.liveID, code, result,context);
                      setState(() {
 
                      });
