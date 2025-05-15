@@ -15,6 +15,8 @@ A sud game plugin
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
+  s.dependency 'SudMGP_Lite', '~> 1.5.1'
+  s.dependency 'SudMGPWrapper_Lite'
   s.platform = :ios, '12.0'
 
   # Flutter.framework does not contain a i386 slice.

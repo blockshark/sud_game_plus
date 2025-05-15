@@ -1,0 +1,44 @@
+PODS:
+  - Flutter (1.0.0)
+  - integration_test (0.0.1):
+    - Flutter
+  - MJExtension (3.4.2)
+  - sud_game_plus (0.0.1):
+    - Flutter
+    - SudMGP_Lite (~> 1.5.1)
+    - SudMGPWrapper_Lite
+  - SudMGP_Lite (1.5.1)
+  - SudMGPWrapper_Lite (1.4.8):
+    - MJExtension (~> 3.4.1)
+    - SudMGP_Lite
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - integration_test (from `.symlinks/plugins/integration_test/ios`)
+  - sud_game_plus (from `.symlinks/plugins/sud_game_plus/ios`)
+
+SPEC REPOS:
+  trunk:
+    - MJExtension
+    - SudMGP_Lite
+    - SudMGPWrapper_Lite
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  integration_test:
+    :path: ".symlinks/plugins/integration_test/ios"
+  sud_game_plus:
+    :path: ".symlinks/plugins/sud_game_plus/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
+  MJExtension: e97d164cb411aa9795cf576093a1fa208b4a8dd8
+  sud_game_plus: 4f1ad37cd20cc223ac8c0939d3aaff7e0cac6c55
+  SudMGP_Lite: ff31b7d166432084820d3f9a471931803b264326
+  SudMGPWrapper_Lite: 5ed75eadfd3c754e5955fcd39a096f27fd99838b
+
+PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
+
+COCOAPODS: 1.16.2
