@@ -87,7 +87,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.19.1'
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
-    implementation 'tech.sud.mgp:SudMGP:1.4.7.1218'
+    implementation 'tech.sud.mgp:SudMGP:1.5.1.1236'
 }
