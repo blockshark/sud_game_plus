@@ -1,5 +1,8 @@
 
 import 'dart:async';
+import 'dart:convert';
+import 'dart:ui' as ui;
+import 'package:flutter/material.dart';
 
 import 'sud_game_plus_platform_interface.dart';
 
@@ -23,6 +26,7 @@ class SudGamePlus {
   Stream<Map>? eventStream;
 
 
+
   static Future<Map?> getVersion() {
     return SudGamePlusPlatform.instance.getVersion();
   }
@@ -35,8 +39,18 @@ class SudGamePlus {
     return SudGamePlusPlatform.instance.getGameList();
   }
 
-  static Future<Map?> loadGame(String userid, String roomid, String code, int gameid, String language, String viewSize, String gameConfig){
-    return SudGamePlusPlatform.instance.loadGame(userid, roomid, code, gameid, language, viewSize, gameConfig);
+  static Future<Map?> loadGame(String userid, String roomid, String code, int gameid,BuildContext context,{String? language, String? viewSize, String? gameConfig}){
+    viewSize ?? getGameViewSize(context);
+    gameConfig ?? getGameConfig();
+
+    Locale locale = Localizations.localeOf(context);
+    final languageCode = locale.languageCode;
+    Map languageMap = {
+      'en':'en-US',
+      'zh':"zh-TW",
+    };
+    final language = languageMap['languageCode'] ?? 'en-US';
+    return SudGamePlusPlatform.instance.loadGame(userid, roomid, code, gameid, language, viewSize!, gameConfig!);
   }
 
   static Future<Map> pauseMG() async {
@@ -59,5 +73,22 @@ class SudGamePlus {
     return SudGamePlusPlatform.instance.notifyStateChange(state, dataJson);
   }
 
+  static String getGameViewSize(BuildContext context,{double? width,double? height}) {
+
+    final double scale = View.of(context).devicePixelRatio;
+    final screenWidth = width ?? MediaQuery.of(context).size.width * scale;
+    final screenHeight = height ?? MediaQuery.of(context).size.height * scale * 1.0;
+
+    final top = scale * 100; // margin
+    final bottom = scale * 200; // margin
+    return json.encode({
+      "view_size": {"width": screenWidth, "height": screenHeight},
+      "view_game_rect": {"left": 0, "top": top, "right": 0, "bottom": bottom}
+    });
+  }
+
+  static String getGameConfig() {
+    return json.encode({});
+  }
 
 }
