@@ -263,7 +263,7 @@ class SudGamePlusPlugin: FlutterPlugin, MethodCallHandler, EventChannel.StreamHa
       }
 
       override fun onGetGameViewInfo(p0: ISudFSMStateHandle?, p1: String?) {
-        Log.d(TAG, "onGetGameViewInfo")
+        Log.d(TAG, "onGetGameViewInfo handle = $p0 p1 = $p1")
         p0?.success(_viewSize);
       }
 

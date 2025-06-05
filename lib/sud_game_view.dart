@@ -14,7 +14,6 @@ class SudGameView extends StatelessWidget {
 
     if (Platform.isIOS) {
       return UiKitView(
-          key: UniqueKey(),
           viewType: 'SudMGPPluginView',
           onPlatformViewCreated: (int viewID) {
 

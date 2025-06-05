@@ -39,7 +39,7 @@ class LivePageState extends State<LivePage> {
     });
     _streamSubscription = SudGamePlus.instance.eventStream?.listen((data){
       String method = data['method'];
-      String state = data['dataJson']['state'];
+      String state = data['state'];
       print('method = $method,state = $state');
       switch (method) {
         case 'onGameStarted':
